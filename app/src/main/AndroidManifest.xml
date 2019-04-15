@@ -11,10 +11,29 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ListarAtividadesActivity">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EventosListActivity"
+            android:label="@string/title_eventos_list"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".EventosDetailActivity"
+            android:label="@string/title_eventos_detail"
+            android:parentActivityName=".EventosListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="leandro.com.br.exercicios.EventosListActivity" />
         </activity>
     </application>
 

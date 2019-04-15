@@ -15,24 +15,31 @@ public class ListarAtividadesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_atividades);
-        List<Atividades> AtivList = getTodosAtividades();
+        List<String> AtivList = getTodosAtividades();
         ListView ListarAtividades = findViewById(R.id.ListarAtividades);
-        ArrayAdapter<Atividades> adapter =
-                new ArrayAdapter<Atividades>(this,android.R.layout.simple_list_item_1,AtivList);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,AtivList);
         ListarAtividades.setAdapter(adapter);
-
 
     }
 
-    public List<Atividades> getTodosAtividades(){
-        List<Atividades> ListaAtividades =new ArrayList<Atividades>();
+    public List<String> getTodosAtividades(){
+        List<String> ListaAtividades =new ArrayList<String>();
         Atividades atividades=new Atividades();
-        atividades.setNome("Manutencao ");
+        atividades.setNome("Manutencao");
         atividades.setDescricao("Manutencao dos computadores do laboratorios");
         atividades.setEstatus(EstadoAtual.FAZENDO);
-        ListaAtividades.add(atividades);
-        return ListaAtividades;
+        ListaAtividades.add(atividades.getNome());
 
+        for(int i =0; i<=20; i++){
+            Atividades atividadeInterno = new Atividades();
+            atividadeInterno.setNome("Atividade" + i);
+            atividadeInterno.setDescricao("Manutencao dos computadores do laboratorios");
+            atividadeInterno.setEstatus(EstadoAtual.FAZENDO);
+            ListaAtividades.add(atividadeInterno.getNome());
+
+        }
+        return ListaAtividades;
 
     }
 }
